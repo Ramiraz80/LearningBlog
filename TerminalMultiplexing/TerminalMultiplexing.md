@@ -1,5 +1,7 @@
 # Terminal Multiplexing
 
+![](TerminalMultiplexing.multiplexing.png)
+
 When I open a Terminal session I am usually limited to doing one thing at a time, per terminal session, and if I close the terminal, what I was doing usually goes away. If I open a new terminal session, I start from scratch again.  
 But the solution to this problem is terminal multiplexing. This allows me to have multiple “panes or windows” inside of one terminal window.
 
@@ -12,6 +14,8 @@ One way is to install a terminal with built in multiplexing, like Terminator. Th
 There are some different CLI applications I can use to add multiplexing to my chosen terminal. The two I will mention here are “Screen” and “Tmux”. they share alot of functionality, though “Tmux” seems to be the more advanced of the two, with automatic window renaming among other things.
 
 ### Screen
+
+![](TerminalMultiplexing.screen.png)
 
 NOTE: All commands need to be prefixed with the action key. By default, this is Ctrl+a  
 Ctrl+a c new window  
@@ -39,6 +43,8 @@ Ctrl+a ? show key bindings/command names Note unbound commands only in man page
 Ctrl+a : goto screen command prompt up shows last command entered
 
 ### Tmux
+
+![](TerminalMultiplexing.tmux.png)
 
 NOTE: All commands need to be prefixed with the action key. By default, this is Ctrl+b
 
