@@ -30,6 +30,7 @@ With the knowledge of the disk size, I can deduce that the disk I want to erase 
 The first tool we can use the the program called "dd"
 
 From man:
+
 ```bash
 NAME
        dd - convert and copy a file
@@ -76,21 +77,22 @@ In the above example we can see that dd has written 128GB of zeroes to the disk.
 
 ##### Command in parts:
 
-  - dd - the program itself
-  - if=/dev/zero - if stands for "input file" (remember that everything is a file in Linux). It takes the contents of /dev/zero as input for our command.
-  - of=/dev/sdb - of stands for "output file". here we designate the file /dev/sdb (which is our harddrive, that we identified earlier)
-  - bs=10M - We tell dd to write in blocks of 10MB at a time. This speeds up the process by a significant margin.
-  - status=progress - Gives us a nice status, that updates to tell us how long the command has run.
+- dd - the program itself
+- if=/dev/zero - if stands for "input file" (remember that everything is a file in Linux). It takes the contents of /dev/zero as input for our command.
+- of=/dev/sdb - of stands for "output file". here we designate the file /dev/sdb (which is our harddrive, that we identified earlier)
+- bs=10M - We tell dd to write in blocks of 10MB at a time. This speeds up the process by a significant margin.
+- status=progress - Gives us a nice status, that updates to tell us how long the command has run.
 
 ##### Can it be done even more securely with dd?
-overwriting with zeroes is pretty secure, but if you realy want to be even more sure, use /dev/random instead. This takes longer, but will make data recovery even harder.
 
+overwriting with zeroes is pretty secure, but if you realy want to be even more sure, use /dev/random instead. This takes longer, but will make data recovery even harder.
 
 ### Erasing the disk with shred.
 
 The second tool we can use is called "shred" (imagine a paper shredder)
 
 From man:
+
 ```bash
 NAME
        shred - overwrite a file to hide its contents, and optionally delete it
@@ -123,18 +125,23 @@ tldr shred
 ```bash
 [ansibleuser@testansible ~]$ sudo shred -vfz /dev/sdb
 shred: /dev/sdb: pass 1/4 (random)...
-shred: /dev/sdb: pass 1/4 (random)...467MiB/120GiB 0%
-shred: /dev/sdb: pass 1/4 (random)...950MiB/120GiB 0%
-shred: /dev/sdb: pass 1/4 (random)...1.4GiB/120GiB 1%
-...
-...
-...
+shred: /dev/sdb: pass 1/4 (random)...410MiB/466GiB 0%
+shred: /dev/sdb: pass 1/4 (random)...940MiB/466GiB 0%
+shred: /dev/sdb: pass 1/4 (random)...1.4GiB/466GiB 0%
 
+...
+...
+...
+shred: /dev/sdb: pass 4/4 (000000)...462GiB/466GiB 99%
+shred: /dev/sdb: pass 4/4 (000000)...463GiB/466GiB 99%
+shred: /dev/sdb: pass 4/4 (000000)...464GiB/466GiB 99%
+shred: /dev/sdb: pass 4/4 (000000)...465GiB/466GiB 99%
+shred: /dev/sdb: pass 4/4 (000000)...466GiB/466GiB 100%
 ```
 
 ##### Command in parts:
 
- - shred - the program itself.
- - -v - Verbose = show progress
- - -f - force = change permissions to allow writing if necessary
- - -z - zero = add a final overwrite with zeros to hide shredding
+- shred - the program itself.
+- -v - Verbose = show progress
+- -f - force = change permissions to allow writing if necessary
+- -z - zero = add a final overwrite with zeros to hide shredding
