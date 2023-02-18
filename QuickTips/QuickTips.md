@@ -4,7 +4,7 @@ This is a collection of small tips I want to remember, that does not an entire p
 
 ## Check if a server needs a reboot
 
-When I SSH in to an Ubuntu Server, that has automated Security updates enabled, the SSH Splash Screen will show if the server needs a reboot with this message:
+When I SSH in to an Debian based Server, that has automated Security updates enabled, the SSH Splash Screen will show if the server needs a reboot with this message:
 
 ```bash
 *** System restart required ***
@@ -29,5 +29,3 @@ username@servername:~$ ls /var/run/reboot-required
 username@servername:~$ ls /var/run/reboot-required
 ls: cannot access '/var/run/reboot-required': No such file or directory
 ```
-
-
