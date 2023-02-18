@@ -11,12 +11,9 @@ many alternatives to “top”, but this is the one I prefer to use
 
 ![](images/htop.png)
 
-
-
 ## TLDR
 
 Link: [GitHub - tldr-pages/tldr: 📚 Collaborative cheatsheets for console commands](https://github.com/tldr-pages/tldr)
-
 
 tldr is an alternative or rather, a supplement to the “–help”
 argument or man pages. It gives a few usefull examples on how to use
@@ -25,8 +22,6 @@ it provides me with real examples of how to use a command. It does
 not have examples for all commands yet, but more and more are coming.
 
 ![](images/tldr.png)
-
-
 
 ## VIM
 
@@ -43,8 +38,6 @@ expert in it, but it serves me well enough.
 
 ![](images/vim.png)
 
-
-
 ## Neofetch
 
 link: [GitHub - dylanaraps/neofetch: 🖼️ A command-line system information tool written in bash 3.2+](https://github.com/dylanaraps/neofetch)
@@ -55,8 +48,6 @@ is to print out information about your computer, Operating System and
 Desktop Enviroment in the terminal.
 
 ![](images/neofetch.png)
-
-
 
 ## Syncthing
 
@@ -74,9 +65,7 @@ accessed through a web gui.
 
 ![](images/syncthing.jpg)
 
-
-
-TMUX
+## TMUX
 
 Link: [GitHub - tmux/tmux: tmux source code](https://github.com/tmux/tmux)
 
@@ -90,10 +79,6 @@ remote system and resume my terminal session.
 
 ![](images/tmux.png)
 
-
-
 tmux has ALOT of hotkeys to remember. So many that a good cheat sheet is
 needed. Luckily they exist on the internet. Here is a link to a good
 one: [https://tmuxcheatsheet.com/](https://tmuxcheatsheet.com/)
-
-
