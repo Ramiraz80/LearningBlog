@@ -60,3 +60,26 @@ To make this cjamge tale effect, either reboot the server, or use the sysctl com
 [root@rhcsa2 ~] sysctl -p
 net.ipv4.ip_forward = 1
 ```
+
+### ipv6 forwarding
+
+IPv6 forwarding is somewhat similar to IPv4 forwarding. the command is just a bit different.
+
+non persistant:
+```bash
+[root@rhcsa2 ~] sysctl net.ipv6.conf.all.forwarding
+```
+
+Persistant:
+```bash
+[root@rhcsa2 ~]# vim /etc/sysctl.conf
+
+### Add this line:    ###
+net.ipv6.conf.all.forwarding = 1
+```
+
+and like with ip4, we enable with the sysctl command with the -p flag
+```bash
+[root@rhcsa2 ~]# sysctl -p
+net.ipv6.conf.all.forwarding = 1
+```
