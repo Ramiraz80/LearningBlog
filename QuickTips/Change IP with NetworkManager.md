@@ -102,3 +102,11 @@ The command:
 ```bash
 nmcli con mod rhcsa +ipv4.address 192.168.1.100/24
 ```
+
+to remove the IP adress again, simply use " -ipv4.address " instead of a +
+
+We can ofcourse also add ipv6 addresses like this:
+
+```bash
+nmcli con mod rhcsa +ipv6.address fd01::105/64
+```
