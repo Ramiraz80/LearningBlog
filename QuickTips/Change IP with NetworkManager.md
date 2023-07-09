@@ -1,6 +1,8 @@
 RHEL servers use NetworkManager by default to manage networking connections. 
 On ubuntu servers, with netplan, the networking renderer can be set to use NetworkManager aswell.
 
+### See Network Devices
+
 To see the servers available network devices, we can use the nmcli command
 ```bash
 nmcli device status
@@ -39,10 +41,14 @@ method=auto
 
 ```
 
+### nmtui and nmcli
+
 To change the settings of the network connection, we can either use the TUI based program, called " nmtui " or the cli based option, called " nmcli ". Neither is more correct than the other. Though for this guide we are going to focus on nmcli.
 
 nmtui looks like this:
 ![[nmtui.png]]
+
+### nmcli options
 
 - con-name - name of the network connection
 - type - is this ethernet, wifi, or something completely different.
@@ -53,11 +59,15 @@ nmtui looks like this:
 - ipv4.gateway - IP address of the default gateway
 - ipv4.dns - IP address of of the DNS servers. to set two add the ip adresses in a set of quotation marks, with a space between. Like so: "8.8.8.8 1.1.1.1"
 
-example:
+### The actual command
+
+the command:
 ```bash
 nmcli connection add con-name rhcsa2 type ethernet ifname ens19 autoconnect yes ipv4.method manual ipv4.addresses 192.168.1.5/24 ipv4.gateway 192.168.1.1 ipv4.dns "192.168.1.1 8.8.8.8"
 Connection 'rhcsa2' (2c1c26a1-dbdb-481c-bf11-63c2ad62aab6) successfully added.
 ```
+
+### Bring the connection up
 
 once the connection has been added, it needs to be started.
 we do this with the nmcli con up [name].
@@ -79,4 +89,16 @@ rhcsa2              2c1c26a1-dbdb-481c-bf11-63c2ad62aab6  ethernet  ens19
 ens18               93771c70-712b-3127-b961-3e992507fb8c  ethernet  --     
 rhcsa               25e8e47d-4f4d-4b1a-8936-dc91c90b4c54  ethernet  --     
 Wired connection 1  3c74e68b-e2a3-3fd3-9e15-28565e64cde4  ethernet  --     
+```
+
+
+### Add an extra IP address
+
+it is possible to add extra ip addresses after the fact, with nmcli (and with nmtui).
+
+To add extra options (IP adresses, DNS adress, and so on), with the command "nmcli con mod"
+
+The command:
+```bash
+nmcli con mod rhcsa +ipv4.address 192.168.1.100/24
 ```
